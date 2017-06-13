@@ -3,16 +3,11 @@ var webpack = require('webpack');
 
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'webapp'); //__dirname 中的src目录，以此类推
-var BUILD_PATH = path.resolve(ROOT_PATH, '/src/public/dist'); //发布文件所存放的目录
+var BUILD_PATH = path.resolve(ROOT_PATH, 'public/dist'); //发布文件所存放的目录
 
 module.exports = {
-    devtool: 'cheap-module-eval-source-map',
     entry: {
-        main: [
-            'webpack-dev-server/client?http://0.0.0.0:3000',//资源服务器地址
-            'webpack/hot/only-dev-server',
-            './webapp/index'
-        ],
+        main: './webapp/index',
         vendor: [
             'react',
             'redux',
@@ -21,11 +16,13 @@ module.exports = {
         ]
     },
     output: {
-        publicPath: 'http://0.0.0.0:3000/assets',
+        //publicPath: '/public/dist/', //编译好的文件，在服务器的路径,这是静态资源引用路径
         //path: BUILD_PATH, //编译到当前目录
-        path: path.resolve(__dirname, 'src/public/assets'),
+        //filename: '[name].js', //编译后的文件名字
+        //chunkFilename: '[name].[chunkhash:5].min.js'
+        path: path.join(__dirname, 'src/public/assets'),
         filename: '[name].js',
-        chunkFilename: '[name].[chunkhash:5].min.js',
+        publicPath: 'http://localhost:3000/static/'
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
@@ -34,16 +31,21 @@ module.exports = {
         }),
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: JSON.stringify("development")
+                NODE_ENV: JSON.stringify("production")
             }
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                //supresses warnings, usually from module minification
+                warnings: false
+            }
+        })
     ],
     module: {
         loaders: [
             {
                 test: /(\.jsx|\.js)$/,
-                loaders: ['babel?presets[]=es2015&presets[]=react'],
+                loaders: ['babel-loader?presets[]=es2015&presets[]=react'],
                 exclude: /node_modules/,
                 include: [APP_PATH]
             },
