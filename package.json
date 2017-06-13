@@ -4,7 +4,8 @@
   "description": "koa v2 boilerplate.",
   "main": "app.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress --colors --hot --host 0.0.0.0 --port 3000 --content-base ./src/public --config ./webpack.config.js | nodemon start.js"
+    "dev": "webpack-dev-server --progress --colors --hot --host 0.0.0.0 --port 3000 --content-base ./src/public --config webpack.config.js | nodemon start.js",
+    "build": "NODE_ENV=\"production\" webpack -p --config ./webpack.prod.config.js"
   },
   "repository": {
     "type": "git",
@@ -25,9 +26,19 @@
   },
   "dependencies": {
     "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
     "koa-compose": "^4.0.0",
+    "koa-convert": "^1.2.0",
+    "koa-logger": "^3.0.0",
+    "koa-mount": "^3.0.0",
     "koa-router": "^7.2.0",
+    "koa-static": "^3.0.0",
     "koa-views": "^6.0.2",
+    "path": "^0.12.7",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0",
     "swig": "^1.4.2"
   },
   "devDependencies": {
@@ -42,8 +53,10 @@
     "babel-preset-stage-1": "^6.24.1",
     "babel-register": "^6.24.1",
     "babel-runtime": "^6.23.0",
+    "file-loader": "^0.11.2",
     "log4js": "^1.1.1",
     "nodemon": "^1.11.0",
+    "url-loader": "^0.5.8",
     "webpack": "^2.6.1",
     "webpack-dev-middleware": "^1.10.2",
     "webpack-dev-server": "^2.4.5",
