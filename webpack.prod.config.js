@@ -3,7 +3,6 @@ var webpack = require('webpack');
 
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'webapp'); //__dirname 中的src目录，以此类推
-var BUILD_PATH = path.resolve(ROOT_PATH, 'public/dist'); //发布文件所存放的目录
 
 module.exports = {
     entry: {
@@ -16,10 +15,6 @@ module.exports = {
         ]
     },
     output: {
-        //publicPath: '/public/dist/', //编译好的文件，在服务器的路径,这是静态资源引用路径
-        //path: BUILD_PATH, //编译到当前目录
-        //filename: '[name].js', //编译后的文件名字
-        //chunkFilename: '[name].[chunkhash:5].min.js'
         path: path.join(__dirname, 'src/public/assets'),
         filename: '[name].js',
         publicPath: 'http://localhost:3000/static/'

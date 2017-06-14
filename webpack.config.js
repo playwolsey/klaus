@@ -3,13 +3,12 @@ var webpack = require('webpack');
 
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'webapp'); //__dirname 中的src目录，以此类推
-var BUILD_PATH = path.resolve(ROOT_PATH, '/src/public/dist'); //发布文件所存放的目录
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
     entry: {
         main: [
-            'webpack-dev-server/client?http://0.0.0.0:3000',//资源服务器地址
+            'webpack-dev-server/client?http://localhost:3000',//资源服务器地址
             'webpack/hot/only-dev-server',
             './webapp/index'
         ],
@@ -22,10 +21,8 @@ module.exports = {
     },
     output: {
         publicPath: 'http://0.0.0.0:3000/assets',
-        //path: BUILD_PATH, //编译到当前目录
         path: path.resolve(__dirname, 'src/public/assets'),
-        filename: '[name].js',
-        chunkFilename: '[name].[chunkhash:5].min.js',
+        filename: '[name].js'
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
@@ -43,7 +40,7 @@ module.exports = {
         loaders: [
             {
                 test: /(\.jsx|\.js)$/,
-                loaders: ['babel?presets[]=es2015&presets[]=react'],
+                loaders: ['babel-loader?presets[]=es2015&presets[]=react'],
                 exclude: /node_modules/,
                 include: [APP_PATH]
             },
