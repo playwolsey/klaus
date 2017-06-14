@@ -15,9 +15,9 @@ module.exports = {
         ]
     },
     output: {
+        publicPath: 'http://localhost:3000/assets/',
         path: path.join(__dirname, 'src/public/assets'),
-        filename: '[name].js',
-        publicPath: 'http://localhost:3000/static/'
+        filename: '[name].js'
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
@@ -29,12 +29,12 @@ module.exports = {
                 NODE_ENV: JSON.stringify("production")
             }
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                //supresses warnings, usually from module minification
-                warnings: false
-            }
-        })
+        //new webpack.optimize.UglifyJsPlugin({
+        //    compress: {
+        //        //supresses warnings, usually from module minification
+        //        warnings: false
+        //    }
+        //})
     ],
     module: {
         loaders: [
