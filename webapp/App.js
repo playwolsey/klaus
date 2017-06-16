@@ -4,9 +4,6 @@ import { BrowserRouter as Router, Route, IndexRoute, Redirect } from 'react-rout
 import Index from './pages/index'
 
 class App extends Component {
-    componentDidMount() {
-    }
-
     render() {
         return (
             <Router>
