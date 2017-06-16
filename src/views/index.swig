@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>klaus</title>
+    <link rel="stylesheet" href="assets/main.css" type="text/css">
 </head>
 <body>
     <div id="app"></div>
