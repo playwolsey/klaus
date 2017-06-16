@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'webapp'); //__dirname 中的src目录，以此类推
@@ -34,10 +35,20 @@ module.exports = {
                 NODE_ENV: JSON.stringify("development")
             }
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new ExtractTextPlugin('[name].css')
     ],
     module: {
         loaders: [
+            {
+                test: /\.scss$/,
+                exclude: /^node_modules$/,
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'autoprefixer-loader', 'sass-loader']
+                }),
+                include: [APP_PATH]
+            },
             {
                 test: /(\.jsx|\.js)$/,
                 loaders: ['babel-loader?presets[]=es2015&presets[]=react'],
@@ -59,6 +70,6 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.less', '.scss', '.css'] //后缀名自动补全
+        extensions: ['.js', '.jsx', '.scss', '.css'] //后缀名自动补全
     }
 };
