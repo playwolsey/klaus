@@ -1,6 +1,7 @@
 import React , { Component } from 'react'
 import Header from '../components/Header'
 import Leftbar from '../components/Leftbar'
+import Mbar from '../components/Mbar'
 
 class Index extends Component {
     render() {
@@ -8,6 +9,7 @@ class Index extends Component {
             <div>
                 <Header/>
                 <Leftbar/>
+                <Mbar/>
             </div>
         )
     }

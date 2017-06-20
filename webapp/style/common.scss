@@ -32,3 +32,16 @@
     z-index: 101;
     background-color: #fff;
 }
+
+.m-mbar {
+    position: fixed;
+    width: 270px;
+    height: 100%;
+    top: 50px;
+    left: 180px;
+    bottom: 0;
+    overflow-x: hidden;
+    z-index: 101;
+    background-color: #fff;
+    border-left: 1px solid #e2e2e2;
+}
