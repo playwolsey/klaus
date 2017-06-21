@@ -17,7 +17,7 @@ module.exports = {
     },
     output: {
         publicPath: 'http://localhost:3000/assets/',
-        path: path.join(__dirname, 'src/public/assets'),
+        path: path.join(__dirname, 'public/assets'),
         filename: '[name].js'
     },
     plugins: [

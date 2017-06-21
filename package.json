@@ -4,8 +4,9 @@
   "description": "koa2 react redux boilerplate.",
   "main": "app.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress --colors --hot --host 0.0.0.0 --port 3000 --content-base ./assets --history-api-fallback --config ./webpack.config.js | nodemon start.js",
-    "build": "NODE_ENV=\"production\" webpack -p --config ./webpack.prod.config.js"
+    "dev": "NODE_ENV=\"development\" nodemon ./bin/start.dev.js --watch server --watch build",
+    "devold": "webpack-dev-server --progress --colors --hot --host 0.0.0.0 --port 3000 --content-base ./assets --history-api-fallback --config ./webpack.config.js | nodemon start.js",
+    "build": "NODE_ENV=\"production\" webpack -p --config ./webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -62,6 +63,8 @@
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
+    "koa-webpack-dev-middleware": "^1.4.6",
+    "koa-webpack-hot-middleware": "^1.0.3",
     "log4js": "^1.1.1",
     "node-sass": "^4.5.3",
     "nodemon": "^1.11.0",

@@ -14,7 +14,7 @@
 <body>
 <div id="app"></div>
 
-<script src="http://localhost:3000/assets/vendor.bundle.js"></script>
-<script src="http://localhost:3000/assets/main.js"></script>
+<script src="assets/vendor.bundle.js"></script>
+<script src="assets/main.js"></script>
 </body>
 </html>

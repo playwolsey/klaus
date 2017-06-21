@@ -10,7 +10,7 @@ export default (app) => {
     app.proxy = true
 
     app.use(logger())
-    app.use(mount("/", serve(`${__dirname}/../public/`)))
+    app.use(mount("/", serve(`${__dirname}/../../public/`)))
     app.use(views(`${__dirname}/../views`, {extension: 'swig'}))
 
     app.use(convert(historyApiFallback({
