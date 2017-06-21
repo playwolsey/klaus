@@ -11,7 +11,8 @@ module.exports = {
         main: [
             //'webpack-dev-server/client?http://localhost:3000',//资源服务器地址
             //'webpack/hot/only-dev-server',
-            'webpack-hot-middleware/client?path=http://localhost:3000/__weback_hmr&timeout=20000',
+            'eventsource-polyfill',
+            'webpack-hot-middleware/client?path=/__weback_hmr&timeout=20000',
             './webapp/index'
         ],
         vendor: [
@@ -22,7 +23,7 @@ module.exports = {
         ]
     },
     output: {
-        publicPath: 'http://0.0.0.0:3000/assets',
+        publicPath: '/assets',
         path: path.resolve(__dirname, 'public/assets'),
         filename: '[name].js'
     },
@@ -32,7 +33,9 @@ module.exports = {
             filename: 'vendor.bundle.js'
         }),
         new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')}),
+        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
         new ExtractTextPlugin('[name].css')
     ],
     //devServer: {
@@ -51,11 +54,19 @@ module.exports = {
                 }),
                 include: [APP_PATH]
             },
+//            {
+//                test: /(\.jsx|\.js)$/,
+//                loaders: ['babel-loader?presets[]=es2015&presets[]=react'],
+//                exclude: /node_modules/,
+//                include: [APP_PATH]
+//            },
             {
-                test: /(\.jsx|\.js)$/,
-                loaders: ['babel-loader?presets[]=es2015&presets[]=react'],
+                test: /\.js$/,
                 exclude: /node_modules/,
-                include: [APP_PATH]
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015', 'react', 'stage-1', 'react-hmre']
+                }
             },
             {
                 test: /\.(eot|woff|svg|ttf|woff2|gif|appcache)(\?|$)/,

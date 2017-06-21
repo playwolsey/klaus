@@ -7,9 +7,9 @@ router.get('/', async(ctx, next) => {
     await ctx.render('./index')
 })
 
-router.get('*', async (ctx, next) => {
-    ctx.body = { status : 404 }
-})
+//router.get('*', async (ctx, next) => {
+//    ctx.body = { status : 404 }
+//})
 
 export default routes => (
     compose([
