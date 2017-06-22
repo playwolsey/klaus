@@ -11,7 +11,6 @@ module.exports = {
         ]
     },
     output: {
-        //publicPath: '/assets',
         path: path.resolve(__dirname, 'public/assets'),
         filename: '[name].dll.js',
         library: '[name]_library'
