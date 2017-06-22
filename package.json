@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "NODE_ENV=\"development\" nodemon ./bin/start.dev.js --watch server --watch build",
+    "dll": "NODE_ENV=\"development\" webpack --config ./webpack.dll.config.js",
     "build": "NODE_ENV=\"production\" webpack -p --config ./webpack.prod.config.js --progress"
   },
   "repository": {
