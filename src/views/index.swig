@@ -14,7 +14,11 @@
 <body>
 <div id="app"></div>
 
+{% if process.env.NODE_ENV !== "development" %}
 <script src="assets/vendor.bundle.js"></script>
+{% else %}
+<script src="assets/vendor.dll.js"></script>
+{% endif %}
 <script src="assets/main.js"></script>
 </body>
 </html>

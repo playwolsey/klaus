@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'webapp');
@@ -9,18 +10,16 @@ module.exports = {
     devtool: 'cheap-module-eval-source-map',
     entry: {
         main: [
-            //'webpack-dev-server/client?http://localhost:3000',//资源服务器地址
-            //'webpack/hot/only-dev-server',
             'eventsource-polyfill',
             'webpack-hot-middleware/client?path=/__weback_hmr&timeout=20000',
             './webapp/index'
-        ],
-        vendor: [
-            'react',
-            'redux',
-            'react-redux',
-            'react-dom'
         ]
+        //vendor: [
+        //    'react',
+        //    'redux',
+        //    'react-redux',
+        //    'react-dom'
+        //]
     },
     output: {
         publicPath: '/assets',
@@ -28,21 +27,20 @@ module.exports = {
         filename: '[name].js'
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor', 
-            filename: 'vendor.bundle.js'
-        }),
+        //new webpack.optimize.CommonsChunkPlugin({
+        //    name: 'vendor', 
+        //    filename: 'vendor.bundle.js'
+        //}),
         new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')}),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new ExtractTextPlugin('[name].css')
+        new ExtractTextPlugin('[name].css'),
+        new ProgressBarPlugin(),
+        new webpack.DllReferencePlugin({
+            manifest: path.resolve(__dirname, 'public/assets/vendor.manifest.json')
+        })
     ],
-    //devServer: {
-    //    hot: true,
-    //    inline: true,
-    //    contentBase: './public'
-    //},
     module: {
         loaders: [
             {
@@ -86,38 +84,3 @@ module.exports = {
         extensions: ['.js', '.jsx', '.scss', '.css'] //后缀名自动补全
     }
 };
-
-//if (process.env.NODE_ENV === 'development') {
-//    module.exports.devtool = 'cheap-module-eval-source-map'
-//    module.exports.entry.main = [
-//        'webpack-dev-server/client?http://localhost:3000',//资源服务器地址
-//        'webpack/hot/only-dev-server',
-//        './webapp/index'
-//    ]
-//    module.exports.plugins = (module.exports.plugins || []).concat([
-//        new webpack.DefinePlugin({
-//            'process.env': {
-//                NODE_ENV: JSON.stringify("development")
-//            }
-//        }),
-//        new webpack.HotModuleReplacementPlugin()
-//    ])
-//} else if (process.env.NODE_ENV === 'production') {
-//    //module.exports.devtool = 'cheap-module-source-map'
-//    module.exports.entry.main = [
-//        './webapp/index'
-//    ]
-//    module.exports.plugins = (module.exports.plugins || []).concat([
-//        new webpack.DefinePlugin({
-//            'process.env': {
-//                NODE_ENV: JSON.stringify("production")
-//            }
-//        }),
-//        new webpack.optimize.UglifyJsPlugin({
-//            compress: {
-//                //supresses warnings, usually from module minification
-//                warnings: false
-//            }
-//        })
-//    ])
-//}
