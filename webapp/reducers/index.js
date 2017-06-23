@@ -1,3 +1,5 @@
-export const index = (state = {}, action = {}) => {
+const index = (state = {}, action = {}) => {
     return state
 }
+
+export default index
