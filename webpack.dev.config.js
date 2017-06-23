@@ -14,12 +14,6 @@ module.exports = {
             'webpack-hot-middleware/client?path=/__weback_hmr&timeout=20000',
             './webapp/index'
         ]
-        //vendor: [
-        //    'react',
-        //    'redux',
-        //    'react-redux',
-        //    'react-dom'
-        //]
     },
     output: {
         publicPath: '/assets',
@@ -27,10 +21,6 @@ module.exports = {
         filename: '[name].js'
     },
     plugins: [
-        //new webpack.optimize.CommonsChunkPlugin({
-        //    name: 'vendor', 
-        //    filename: 'vendor.bundle.js'
-        //}),
         new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')}),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
@@ -52,18 +42,17 @@ module.exports = {
                 }),
                 include: [APP_PATH]
             },
-//            {
-//                test: /(\.jsx|\.js)$/,
-//                loaders: ['babel-loader?presets[]=es2015&presets[]=react'],
-//                exclude: /node_modules/,
-//                include: [APP_PATH]
-//            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
-                    presets: ['es2015', 'react', 'stage-1', 'react-hmre']
+                    'presets': ['es2015', 'react', 'stage-0'],
+                    'env': {
+                        'development': {
+                            'presets': ['react-hmre']
+                        }
+                    }
                 }
             },
             {
@@ -81,6 +70,6 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.scss', '.css'] //后缀名自动补全
+        extensions: ['.js', '.jsx', '.scss', '.css']
     }
 };
