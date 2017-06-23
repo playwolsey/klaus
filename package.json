@@ -4,7 +4,8 @@
   "description": "koa2 react redux boilerplate.",
   "main": "app.js",
   "scripts": {
-    "dev": "NODE_ENV=\"development\" nodemon ./bin/start.dev.js --watch server --watch build",
+    "clean": "rimraf ./public/assets/",
+    "dev": "NODE_ENV=\"development\" nodemon ./bin/start.dev.js --watch build --progress",
     "dll": "NODE_ENV=\"development\" webpack --config ./webpack.dll.config.js",
     "build": "NODE_ENV=\"production\" webpack -p --config ./webpack.prod.config.js --progress"
   },
@@ -26,7 +27,7 @@
     "node": ">= 7.9.0"
   },
   "dependencies": {
-    "koa": "^2.0.0-alpha.8",
+    "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-compose": "^4.0.0",
     "koa-connect-history-api-fallback": "^0.3.1",
@@ -45,7 +46,8 @@
     "react-router-dom": "^4.1.1",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
-    "swig": "^1.4.2"
+    "swig": "^1.4.2",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
@@ -71,6 +73,7 @@
     "nodemon": "^1.11.0",
     "progress-bar-webpack-plugin": "^1.9.3",
     "redux-logger": "^3.0.6",
+    "rimraf": "^2.6.1",
     "sass": "^1.0.0-beta.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
