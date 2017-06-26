@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "clean": "rimraf ./public/assets/",
-    "dev": "NODE_ENV=\"development\" nodemon ./bin/start.dev.js --watch build --progress",
+    "dev": "NODE_ENV=\"development\" nodemon ./bin/start.dev.js --watch src --watch public/assets --progress --color --harmony",
     "dll": "NODE_ENV=\"development\" webpack --config ./webpack.dll.config.js",
     "build": "NODE_ENV=\"production\" webpack -p --config ./webpack.prod.config.js --progress"
   },
