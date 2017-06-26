@@ -13,7 +13,7 @@ export default (app) => {
     app.use(mount("/", serve(`${__dirname}/../../public/`)))
     app.use(views(`${__dirname}/../views`, {extension: 'swig'}))
 
-    app.use(convert(historyApiFallback({
-        index: '/'
-    })))
+    //app.use(convert(historyApiFallback({
+    //    index: '/'
+    //})))
 }
