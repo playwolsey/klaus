@@ -1,4 +1,3 @@
-//export GET_ALL_PROJECTS = 'GET_ALL_PROJECTS'
 import 'whatwg-fetch'
 
 export const getAllProjects = () => {
