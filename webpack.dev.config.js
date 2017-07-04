@@ -11,7 +11,8 @@ module.exports = {
     entry: {
         main: [
             'eventsource-polyfill',
-            'webpack-hot-middleware/client?path=/__weback_hmr&timeout=20000',
+            //'webpack-hot-middleware/client?path=/__weback_hmr&timeout=20000',
+            'webpack-hot-middleware/client?reload=true',
             './webapp/index'
         ]
     },
@@ -22,7 +23,6 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')}),
-        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new ExtractTextPlugin('[name].css'),
@@ -45,6 +45,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
+                include: [APP_PATH],
                 loader: 'babel-loader',
                 query: {
                     'presets': ['es2015', 'react', 'stage-0'],
