@@ -35,13 +35,14 @@ class Leftbar extends Component {
 
     componentDidMount() {
         const { dispatch } = this.props
-        console.log(this.props)
+        console.log('xxx', this.props)
         dispatch(getAllProjects())
     }
 
     render() {
         return (
             <section id="leftbar" className="m-leftbar">
+                //<List />
             </section>
         )
     }
