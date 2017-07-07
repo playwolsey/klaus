@@ -12,7 +12,7 @@ export const getAllProjects = () => {
         .then(tjson => {
             dispatch({
                 type: types.GET_ALL_PROJECTS,
-                data: tjson.data
+                projects: tjson.data
             })
         })
     }

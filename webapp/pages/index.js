@@ -3,25 +3,19 @@ import { connect } from 'react-redux'
 import Header from '../components/Header'
 import Leftbar from '../components/Leftbar'
 import Mbar from '../components/Mbar'
-import ApiContainer from '../components/ApiContainer'
+import ApiDetail from '../components/ApiDetail'
 
 class Index extends Component {
     render() {
         return (
             <div>
                 <Header/>
-                <Leftbar projects={this.props.index.projects} {...this.props}/>
+                <Leftbar/>
                 <Mbar/>
-                <ApiContainer/>
+                <ApiDetail/>
             </div>
         )
     }
 } 
 
-function mapStateToProps(state) {
-    return {
-        index : state.index
-    }
-}
-
-export default connect(mapStateToProps)(Index)
+export default Index

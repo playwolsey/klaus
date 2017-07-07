@@ -3,28 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { getAllProjects } from '../actions/index'
 
-//class ListItem extends Component {
-//    render() {
-//        return (
-//            <li className='project_li'>
-//            </li>
-//        )
-//    }
-//}
-
-class List extends Component {
-    render() {
-        return (
-            <ul className='m-projects-list'>
-            {
-                this.props.projects.map((item, index) => {
-                    return <li className='projects-li' key={index}>{item.name}</li>
-                })
-            }
-            </ul>
-        )
-    }
-}
+import Projects from '../components/Projects'
 
 class Leftbar extends Component {
     constructor(props) {
@@ -35,14 +14,15 @@ class Leftbar extends Component {
 
     componentDidMount() {
         const { dispatch } = this.props
-        console.log('xxx', this.props)
         dispatch(getAllProjects())
     }
 
     render() {
+        const { projects } = this.props
+
         return (
             <section id="leftbar" className="m-leftbar">
-                //<List />
+                <Projects projects={ projects }/>
             </section>
         )
     }
@@ -52,10 +32,9 @@ Leftbar.propTypes = {
     dispatch: PropTypes.func.isRequired
 }
 
-function mapStateToProps(state) {
-    const { projects } = state
+const mapStateToProps = state => {
     return {
-        projects
+        projects: state.index.projects
     }
 }
 
