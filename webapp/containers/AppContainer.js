@@ -5,7 +5,7 @@ import Leftbar from '../components/Leftbar'
 import Mbar from '../components/Mbar'
 import ApiDetail from '../components/ApiDetail'
 
-class Index extends Component {
+export default class AppContainer extends Component {
     render() {
         return (
             <div>
@@ -17,5 +17,3 @@ class Index extends Component {
         )
     }
 } 
-
-export default Index
