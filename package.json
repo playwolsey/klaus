@@ -68,7 +68,6 @@
     "eventsource-polyfill": "^0.9.6",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
-    "koa-webpack": "^0.5.1",
     "koa-webpack-middleware": "^1.0.5",
     "log4js": "^1.1.1",
     "node-sass": "^4.5.3",
