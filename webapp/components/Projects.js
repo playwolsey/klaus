@@ -11,7 +11,11 @@ export default class Projects extends Component {
             <ul className='m-projects-list'>
             {
                 this.props.projects.map((item, index) => {
-                    return <li className='projects-li' key={index}>{item.name}</li>
+                    return (
+                        <li className='projects-li' key={index}>
+                            <a className='projects-name' href='javascript:void(0)'>{item.name}</a>
+                        </li>
+                    )
                 })
             }
             </ul>
