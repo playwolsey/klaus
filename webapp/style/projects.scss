@@ -2,10 +2,20 @@
     .projects-li {
         .projects-name {
             height: 35px!important;
-            color: #fff;
+            color: #e0e0e0;
             display: inline-block!important;
             width: 100%;
-            padding-top: 8px;
+            padding: 8px 10px 0 9px;;
+        }
+        &.selected {
+            background-color: #F47023;
+            color: #FFF!important;
+            &:hover {
+                .projects-name {
+                    background-color: #F47023;
+                    color: #FFF!important;
+                }
+            }
         }
         &:hover {
             .projects-name {
