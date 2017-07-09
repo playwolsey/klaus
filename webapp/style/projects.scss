@@ -1,0 +1,16 @@
+.m-projects-list {
+    .projects-li {
+        .projects-name {
+            height: 35px!important;
+            color: #fff;
+            display: inline-block!important;
+            width: 100%;
+            padding-top: 8px;
+        }
+        &:hover {
+            .projects-name {
+                background-color: #616161;
+            }
+        }
+    }
+}

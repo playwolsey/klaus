@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import '../style/projects.scss'
+
 export default class Projects extends Component {
     static propTypes = {
         projects: PropTypes.array.isRequired
