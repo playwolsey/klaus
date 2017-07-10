@@ -2,7 +2,7 @@ import Router from 'koa-router'
 
 const router = new Router()
 
-router.get('/all', async (ctx, next) => {
+router.get('/', async (ctx, next) => {
     ctx.body = {
         'code': 200,
         'data': [{
@@ -11,6 +11,20 @@ router.get('/all', async (ctx, next) => {
         }, {
             'id': 2,
             'name': 'pro2'
+        }],
+        'msg': 'ok'
+    }
+})
+
+router.get('/11', async (ctx, next) => {
+    ctx.body = {
+        'code': 200,
+        'data': [{
+            'id': 11,
+            'name': 'a1'
+        }, {
+            'id': 22,
+            'name': 'a2'
         }],
         'msg': 'ok'
     }
