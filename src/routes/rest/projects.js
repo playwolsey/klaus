@@ -3,6 +3,7 @@ import Router from 'koa-router'
 const router = new Router()
 
 router.get('/', async (ctx, next) => {
+    console.log(ctx.url)
     ctx.body = {
         'code': 200,
         'data': [{
@@ -16,7 +17,8 @@ router.get('/', async (ctx, next) => {
     }
 })
 
-router.get('/11', async (ctx, next) => {
+router.get('/:id', async (ctx, next) => {
+    //console.log('params',ctx.params.id)
     ctx.body = {
         'code': 200,
         'data': [{

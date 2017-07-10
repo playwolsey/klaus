@@ -21,7 +21,7 @@ export const getAllProjects = () => {
 export const getApisByProjectId = (projectId) => {
     return dispatch => {
         //fetch('/projects/' + projectId, {
-        fetch('/projects/11', {
+        fetch('/projects/' + projectId, {
             headers: {
                 'Content-Type': 'application/json'
             }

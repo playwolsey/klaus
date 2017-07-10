@@ -17,8 +17,8 @@ class Projects extends Component {
     }
 
     chooseProject = (e) => {
-        //console.log(e.target)
-        this.props.dispatch(getApisByProjectId(11))
+        //console.log(e.target.id)
+        this.props.dispatch(getApisByProjectId(e.target.id))
     }
 
     render() {
@@ -27,8 +27,8 @@ class Projects extends Component {
             {
                 this.props.projects.map((item, index) => {
                     return (
-                        <li className='projects-li' key={index} onClick={this.chooseProject}>
-                            <a className='projects-name' href='javascript:void(0)'>{item.name}</a>
+                        <li className='projects-li' key={index}onClick={this.chooseProject}>
+                            <a className='projects-name' id={item.id} href='javascript:void(0)'>{item.name}</a>
                         </li>
                     )
                 })
