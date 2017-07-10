@@ -8,8 +8,6 @@ import Projects from '../components/Projects'
 class Leftbar extends Component {
     constructor(props) {
         super(props)
-        //this.handleChange = this.handleChange.bind(this)
-        //this.handleRefreshClick = this.handleRefreshClick.bind(this)
     }
 
     componentDidMount() {
