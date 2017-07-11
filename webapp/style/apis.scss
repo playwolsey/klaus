@@ -1,0 +1,38 @@
+.m-apis-list {
+    .api-li {
+        .api-name {
+            height: 35px!important;
+            color: #e0e0e0;
+            display: inline-block!important;
+            width: 100%;
+            padding: 8px 10px 0 9px;;
+            .method {
+                text-align: center;
+                width: 30px;
+                margin-right: 10px;
+                font-weight: bolder;
+            }
+            .POST {
+                color: #F47023!important;
+            }
+            .GET {
+                color: #57B382!important;
+            }
+        }
+        &.selected {
+            background-color: #F47023;
+            color: #FFF!important;
+            &:hover {
+                .api-name {
+                    background-color: #F47023;
+                    color: #FFF!important;
+                }
+            }
+        }
+        &:hover {
+            .api-name {
+                background-color: #616161;
+            }
+        }
+    }
+}

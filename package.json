@@ -27,6 +27,7 @@
     "node": ">= 7.9.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-compose": "^4.0.0",

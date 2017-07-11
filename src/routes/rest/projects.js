@@ -23,10 +23,12 @@ router.get('/:id', async (ctx, next) => {
         'code': 200,
         'data': [{
             'id': 11,
-            'name': 'a1'
+            'name': 'a1',
+            'method': 'POST'
         }, {
             'id': 22,
-            'name': 'a2'
+            'name': 'a2',
+            'method': 'GET'
         }],
         'msg': 'ok'
     }
