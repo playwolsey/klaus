@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 
+import '../style/apidetail.scss'
+
 class ApiContainer extends Component {
     render() {
         return (
-            <section className='m-container'>
+            <section id="apidetail" className='m-apidetail'>
             </section>
         )
     }

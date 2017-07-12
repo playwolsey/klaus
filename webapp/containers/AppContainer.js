@@ -9,10 +9,12 @@ export default class AppContainer extends Component {
     render() {
         return (
             <div>
-                <Header/>
-                <Leftbar/>
-                <Mbar/>
-                <ApiDetail/>
+                <div className="g-hd"><Header/></div>
+                <div className="g-bd">
+                    <Leftbar/>
+                    <Mbar/>
+                    <ApiDetail/>
+                </div>
             </div>
         )
     }

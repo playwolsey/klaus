@@ -2,7 +2,8 @@ import * as types from '../constants/ActionTypes'
 
 const initialState = {
     projects: [],
-    apis: []
+    apis: [],
+    detail: {}
 }
 
 const index = (state = initialState, action) => {
@@ -16,6 +17,12 @@ const index = (state = initialState, action) => {
         case types.GET_APIS_BY_PROJECTID: {
             return Object.assign({}, state, {
                 apis: action.apis
+            })
+        }
+
+        case types.GET_DETAIL_BY_APIID: {
+            return Object.assign({}, state, {
+                detail: action.detail
             })
         }
 

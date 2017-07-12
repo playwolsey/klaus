@@ -39,10 +39,6 @@ class Projects extends Component {
     }
 }
 
-//Projects.propTypes = {
-//    dispatch: PropTypes.func.isRequired
-//}
-
 const mapStateToProps = state => {
     return {
         apis: state.index.apis

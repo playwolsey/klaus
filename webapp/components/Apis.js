@@ -1,12 +1,25 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import cs from 'classnames'
+import { getDetailByApiId } from '../actions/index'
 
 import '../style/apis.scss'
 
 class Apis extends Component {
     static propTypes = {
         apis: PropTypes.array.isRequired,
+        dispatch: PropTypes.func.isRequired 
+    }
+
+    constructor(props) {
+        super(props)
+        
+        this.chooseApi = this.chooseApi.bind(this)
+    }
+
+    chooseApi = (e) => {
+        this.props.dispatch(getDetailByApiId(e.target.id))
     }
 
     render() {
@@ -29,4 +42,10 @@ class Apis extends Component {
     }
 }
 
-export default Apis
+const mapStateToProps = state => {
+    return {
+        detail: state.index.detail
+    }
+}
+
+export default connect(mapStateToProps)(Apis)

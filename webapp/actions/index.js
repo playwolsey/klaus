@@ -5,11 +5,9 @@ export const getAllProjects = () => {
     return dispatch => {
         fetch('/projects', {
             credentials: 'same-origin'
-        })
-        .then(response => {
+        }).then(response => {
             return response.json()
-        })
-        .then(json => {
+        }).then(json => {
             dispatch({
                 type: types.GET_ALL_PROJECTS,
                 projects: json.data
@@ -20,19 +18,33 @@ export const getAllProjects = () => {
 
 export const getApisByProjectId = (projectId) => {
     return dispatch => {
-        //fetch('/projects/' + projectId, {
         fetch('/projects/' + projectId, {
             headers: {
                 'Content-Type': 'application/json'
             }
-        })
-        .then(response => {
+        }).then(response => {
             return response.json()
-        })
-        .then(json => {
+        }).then(json => {
             dispatch({
                 type: types.GET_APIS_BY_PROJECTID,
                 apis: json.data
+            })
+        })
+    }
+}
+
+export const getDetailByApiId = (apiId) => {
+    return dispatch => {
+        fetch('/apis/' + apiId, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            return response.json()
+        }).then(json => {
+            dispatch({
+                type: types.GET_DETAIL_BY_APIID,
+                detail: json.data
             })
         })
     }
