@@ -44,7 +44,7 @@ class Apis extends Component {
 
 const mapStateToProps = state => {
     return {
-        detail: state.index.detail
+//        detail: state.index.detail
     }
 }
 

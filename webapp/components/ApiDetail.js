@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import '../style/apidetail.scss'
 
-class ApiContainer extends Component {
+class ApiDetail extends Component {
+    static propTypes = {
+        detail: PropTypes.object.isRequired
+    }
+
     render() {
         return (
             <section id="apidetail" className='m-apidetail'>
@@ -11,4 +16,4 @@ class ApiContainer extends Component {
     }
 }
 
-export default ApiContainer
+export default ApiDetail
