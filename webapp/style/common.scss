@@ -1,47 +1,56 @@
-.m-header {
+.g-hd {
     position: fixed;
     width: 100%;
     height: 50px;
-    background: #373d41;
     z-index: 101;
 }
 
-.m-toggle {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    padding-top: 18px; 
-    color: #fff;
-    span {
-        display: block;
-        width: 16px;
-        height: 2px;
-        margin: 0 auto 4px;
-        background-color: #fff;
+.g-bd {
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    height: 100%;
+}
+
+.m-header {
+    background: #373d41;
+    height: 100%;
+
+    .m-toggle {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        padding-top: 18px; 
+        color: #fff;
+        span {
+            display: block;
+            width: 16px;
+            height: 2px;
+            margin: 0 auto 4px;
+            background-color: #fff;
+        }
     }
 }
 
-.m-leftbar {
-    position: fixed;
-    width: 180px;
+.m-leftbar, .m-mbar, .m-apidetail {
     height: 100%;
-    top: 50px;
-    bottom: 0;
     overflow-x: hidden;
     z-index: 101;
+    float: left;
+}
+
+.m-leftbar {
+    width: 20%;
     background: #424242;
 }
 
 .m-mbar {
-    position: fixed;
-    width: 270px;
-    height: 100%;
-    top: 50px;
-    left: 180px;
-    bottom: 0;
-    overflow-x: hidden;
-    z-index: 101;
+    width: 30%;
     background: #424242;
     border-left: 1px solid #333;
+}
+
+.m-apidetail {
+    width: 50%;
 }
