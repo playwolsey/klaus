@@ -18,7 +18,6 @@ class Projects extends Component {
     }
 
     chooseProject = (e) => {
-        //console.log(e.target.id)
         this.props.dispatch(getApisByProjectId(e.target.id))
     }
 
