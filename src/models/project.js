@@ -4,8 +4,8 @@ import Sequelize from 'sequelize'
 const Project = sequelize.define('project', {
     id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
     },
     name: {
         type: Sequelize.STRING,
