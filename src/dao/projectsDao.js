@@ -13,7 +13,7 @@ const getAllProjects = async() => {
  * @param id
  * @returns {*}
  */
-export const getApisByProjectId = async(id) => {
+const getApisByProjectId = async(id) => {
     if (!id) {
         return []
     } else {
@@ -21,8 +21,8 @@ export const getApisByProjectId = async(id) => {
     }
 }
 
-const projectsDao = {
-    getAllProjects: getAllProjects
-} 
 
-export default projectsDao
+export default {
+    getAllProjects,
+    getApisByProjectId
+}

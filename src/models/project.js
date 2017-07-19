@@ -13,6 +13,6 @@ const Project = sequelize.define('project', {
     }
 })
 
-Project.sync()
+//Project.sync()
 
 export default Project

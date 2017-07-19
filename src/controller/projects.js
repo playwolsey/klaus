@@ -1,7 +1,6 @@
 import projectsDao from '../dao/projectsDao'
 
-console.log('fdasf',projectsDao)
-export const getAllProjects = async(ctx) => {
+const getAllProjects = async(ctx) => {
     let projects = []
 
     projects = await projectsDao.getAllProjects()
@@ -13,7 +12,7 @@ export const getAllProjects = async(ctx) => {
     }
 }
 
-export const getApisByProjectId = async(ctx) => {
+const getApisByProjectId = async(ctx) => {
     let apis = []
 
     apis = await Project.getApisByProjectId(ctx.params.id)
@@ -23,4 +22,9 @@ export const getApisByProjectId = async(ctx) => {
         'data': apis,
         'msg': 'ok'
     }
+}
+
+export default {
+    getAllProjects,
+    getApisByProjectId
 }
