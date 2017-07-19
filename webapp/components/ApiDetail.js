@@ -5,7 +5,7 @@ import '../style/apidetail.scss'
 
 class ApiDetail extends Component {
     static propTypes = {
-        detail: PropTypes.object.isRequired
+        //detail: PropTypes.object.isRequired
     }
 
     render() {

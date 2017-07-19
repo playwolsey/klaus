@@ -1,37 +1,13 @@
 import Router from 'koa-router'
+//import projects from '../../controller/projects'
+import { getAllProjects, getApisByProjectId } from '../../controller/projects'
 
 const router = new Router()
 
-router.get('/', async (ctx, next) => {
-    console.log(ctx.url)
-    ctx.body = {
-        'code': 200,
-        'data': [{
-            'id': 1,
-            'name': 'pro1'
-        }, {
-            'id': 2,
-            'name': 'pro2'
-        }],
-        'msg': 'ok'
-    }
-})
-
-router.get('/:id', async (ctx, next) => {
-    //console.log('params',ctx.params.id)
-    ctx.body = {
-        'code': 200,
-        'data': [{
-            'id': 11,
-            'name': 'a1',
-            'method': 'POST'
-        }, {
-            'id': 22,
-            'name': 'a2',
-            'method': 'GET'
-        }],
-        'msg': 'ok'
-    }
-})
+router
+    //.get('/', projects.getAllProjects)
+    //.get('/:id', projects.getApisByProjectId)
+    .get('/', getAllProjects)
+    .get('/:id', getApisByProjectId)
 
 export default router
