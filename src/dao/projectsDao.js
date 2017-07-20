@@ -17,7 +17,7 @@ const getApisByProjectId = async(id) => {
     if (!id) {
         return []
     } else {
-        await Project.findById(id);
+        return await Project.findById(id);
     }
 }
 
