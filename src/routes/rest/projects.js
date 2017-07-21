@@ -1,10 +1,10 @@
 import Router from 'koa-router'
-import projects from '../../controller/projects'
+import projectsCtrl from '../../controller/projectsCtrl'
 
 const router = new Router()
 
 router
-    .get('/', projects.getAllProjects)
-    .get('/:id', projects.getApisByProjectId)
+    .get('/', projectsCtrl.getAllProjects)
+    .get('/:id', projectsCtrl.getApisByProjectId)
 
 export default router
