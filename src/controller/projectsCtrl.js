@@ -15,7 +15,9 @@ const getAllProjects = async(ctx) => {
 const getApisByProjectId = async(ctx) => {
     let apis = []
 
-    apis = await Project.getApisByProjectId(ctx.params.id)
+    if (ctx.params.id) {
+        apis = await Project.getApisByProjectId(ctx.params.id)
+    }
 
     ctx.body = {
         'code': 200,
