@@ -1,5 +1,18 @@
 import projectsDao from '../dao/projectsDao'
 
+const createProject = async(ctx) => {
+    let project = {}
+
+    console.log('ctx.body',ctx.body.projectname)
+    project = await projectsDao.createProject(ctx.body.projectname)
+
+    ctx.body = {
+        'code': 200,
+        'data': project,
+        'msg': 'ok'
+    }
+}
+
 const getAllProjects = async(ctx) => {
     let projects = []
 
@@ -27,6 +40,7 @@ const getApisByProjectId = async(ctx) => {
 }
 
 export default {
+    createProject,
     getAllProjects,
     getApisByProjectId
 }

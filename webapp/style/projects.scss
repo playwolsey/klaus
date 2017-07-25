@@ -1,11 +1,13 @@
 .m-projects-list {
     .projects-li {
+        margin: 2px 0;
         .projects-name {
-            height: 35px!important;
+            height: 50px!important;
             color: #e0e0e0;
+            background-color: #424242;
             display: inline-block!important;
             width: 100%;
-            padding: 8px 10px 0 9px;;
+            padding: 14px 10px 0 9px;;
         }
         &.selected {
             background-color: #F47023;
@@ -21,6 +23,10 @@
             .projects-name {
                 background-color: #616161;
             }
+        }
+        .projects-name-new {
+            background-color: rgba(66, 66, 66, 0.54);
+            text-align: center;
         }
     }
 }

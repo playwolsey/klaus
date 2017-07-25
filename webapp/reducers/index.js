@@ -3,7 +3,8 @@ import * as types from '../constants/ActionTypes'
 const initialState = {
     projects: [],
     apis: [],
-    detail: {}
+    detail: {},
+    project: {}
 }
 
 const index = (state = initialState, action) => {
@@ -11,6 +12,12 @@ const index = (state = initialState, action) => {
         case types.GET_ALL_PROJECTS: {
             return Object.assign({}, state, {
                 projects: action.projects
+            })
+        }
+
+        case types.CREATE_PROJECT: {
+            return Object.assign({}, state, {
+                project: action.project
             })
         }
         

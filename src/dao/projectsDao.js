@@ -1,6 +1,16 @@
 import Project from '../models/Project'
 
 /**
+ * @desc 创建新项目
+ * @returns {project}
+ */
+const createProject = async(pname) => {
+    return await Project.create({
+        name: pname
+    })
+}
+
+/**
  * @desc 查询项目列表
  * @returns {*}
  */
@@ -26,6 +36,7 @@ const getApisByProjectId = async(id) => {
 
 
 export default {
+    createProject,
     getAllProjects,
     getApisByProjectId
 }
