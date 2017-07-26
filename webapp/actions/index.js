@@ -18,18 +18,15 @@ export const getAllProjects = () => {
 
 export const createProject = (pname) => {
     return dispatch => {
-        let params = new FormData()
-        params.append('projectname', pname)
-        //data.append('user', 'hubot')
-
         fetch('/projects', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             },
-            //body: 'projectname=' + pname
-            body: params
+            body: JSON.stringify({
+                projectname: pname
+            })
         }).then(response => {
             return response.json()
         }).then(json => {
