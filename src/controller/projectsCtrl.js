@@ -1,15 +1,18 @@
 import projectsDao from '../dao/projectsDao'
 
 const createProject = async(ctx) => {
+    let body = ctx.request.body
     let project = {}
 
-    console.log('ctx.body',ctx.body.projectname)
-    project = await projectsDao.createProject(ctx.body.projectname)
+    if (!body.projectname) {
+        ctx.throw(400, 'params missing, projectname required')
+    } else {
+        project = await projectsDao.createProject(body.projectname)
 
-    ctx.body = {
-        'code': 200,
-        'data': project,
-        'msg': 'ok'
+        ctx.body = {
+            'result': true,
+            'data': project
+        }
     }
 }
 
@@ -19,24 +22,25 @@ const getAllProjects = async(ctx) => {
     projects = await projectsDao.getAllProjects()
 
     ctx.body = {
-        'code': 200,
+        'result': true,
         'data': projects,
-        'msg': 'ok'
     }
 }
 
 const getApisByProjectId = async(ctx) => {
     let apis = []
 
-    if (ctx.params.id) {
+    if (!ctx.params.id) {
+        ctx.throw(400, 'params missing, id required')
+    } else {
         apis = await Project.getApisByProjectId(ctx.params.id)
+
+        ctx.body = {
+            'result': true,
+            'data': apis,
+        }
     }
 
-    ctx.body = {
-        'code': 200,
-        'data': apis,
-        'msg': 'ok'
-    }
 }
 
 export default {
