@@ -33,7 +33,7 @@ class Projects extends Component {
                     this.props.projects.map((item, index) => {
                         return (
                             <li className='projects-li' key={index} onClick={this.chooseProject}>
-                                <a className='projects-name' id={item.id} href='javascript:void(0)'>{item.name}</a>
+                                <a className='projects-name' id={item.id} href='javascript:void(0)' title={item.name}>{item.name}</a>
                             </li>
                         )
                     })

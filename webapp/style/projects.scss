@@ -7,7 +7,7 @@
             background-color: #424242;
             display: inline-block!important;
             width: 100%;
-            padding: 14px 10px 0 9px;;
+            padding: 14px 10px 0 16px;;
         }
         &.selected {
             background-color: #F47023;
@@ -29,4 +29,10 @@
             text-align: center;
         }
     }
+}
+
+.u-ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
