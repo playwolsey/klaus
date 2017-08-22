@@ -24,14 +24,7 @@ const getAllProjects = async() => {
  * @returns {*}
  */
 const getApisByProjectId = async(id) => {
-    //if (!id) {
-    //    return []
-    //} else {
-    //    //return await Project.findById(id);
-    //    await Project.findById(id);
-    //}
-    
-    await Project.findById(id);
+    return await Project.findById(id);
 }
 
 

@@ -33,7 +33,7 @@ const getApisByProjectId = async(ctx) => {
     if (!ctx.params.id) {
         ctx.throw(400, 'params missing, id required')
     } else {
-        apis = await Project.getApisByProjectId(ctx.params.id)
+        apis = await projectsDao.getApisByProjectId(ctx.params.id)
 
         ctx.body = {
             'result': true,
