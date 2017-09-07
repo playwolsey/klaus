@@ -11,13 +11,13 @@ module.exports = {
         ]
     },
     output: {
-        path: path.resolve(__dirname, 'public/assets'),
+        path: path.resolve(__dirname, '../public/assets'),
         filename: '[name].dll.js',
         library: '[name]_library'
     },
     plugins: [
         new webpack.DllPlugin({
-            path: path.resolve(__dirname, 'public/assets/[name].manifest.json'),
+            path: path.resolve(__dirname, '../public/assets/[name].manifest.json'),
             name: '[name]_library',
         })
     ]

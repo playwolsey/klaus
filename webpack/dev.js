@@ -4,31 +4,31 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 var ROOT_PATH = path.resolve(__dirname);
-var APP_PATH = path.resolve(ROOT_PATH, 'webapp');
+var APP_PATH = path.resolve(ROOT_PATH, '../webapp');
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
-    entry: {
-        main: [
-            'eventsource-polyfill',
-            'webpack-hot-middleware/client?path=/__webpack_hmr&reload=true&timeout=20000',
-            './webapp/index'
-        ]
-    },
+    //entry: {
+    //    main: [
+    //        'eventsource-polyfill',
+    //        'webpack-hot-middleware/client?path=/__webpack_hmr&reload=true&timeout=20000',
+    //        './webapp/index'
+    //    ]
+    //},
+    entry: path.resolve(__dirname, '../webapp/index'),
     output: {
         publicPath: '/assets',
-        path: path.resolve(__dirname, 'public/assets'),
+        path: path.resolve(__dirname, '../public/assets'),
         filename: '[name].js'
     },
     plugins: [
         new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')}),
-        //new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new ExtractTextPlugin('[name].css'),
         new ProgressBarPlugin(),
         new webpack.DllReferencePlugin({
-            manifest: path.resolve(__dirname, 'public/assets/vendor.manifest.json')
+            manifest: path.resolve(__dirname, '../public/assets/vendor.manifest.json')
         })
     ],
     module: {

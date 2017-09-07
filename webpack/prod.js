@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var ROOT_PATH = path.resolve(__dirname);
-var APP_PATH = path.resolve(ROOT_PATH, 'webapp'); //__dirname 中的src目录，以此类推
+var APP_PATH = path.resolve(ROOT_PATH, '../webapp'); //__dirname 中的src目录，以此类推
 
 module.exports = {
     entry: {
@@ -17,7 +17,7 @@ module.exports = {
     },
     output: {
         publicPath: 'http://localhost:3000/assets/',
-        path: path.join(__dirname, 'public/assets'),
+        path: path.resolve(__dirname, '../public/assets'),
         filename: '[name].js'
     },
     plugins: [

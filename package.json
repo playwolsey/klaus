@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "clean": "rimraf ./public/assets/",
-    "dev": "NODE_ENV=\"development\" nodemon ./bin/start.dev.js --watch src --watch public/assets --watch webapp --progress --color --harmony",
-    "dll": "NODE_ENV=\"development\" webpack --config ./webpack.dll.config.js",
-    "build": "NODE_ENV=\"production\" webpack -p --config ./webpack.prod.config.js --progress"
+    "dev": "NODE_ENV=\"development\" nodemon ./bin/start.dev.js",
+    "dll": "NODE_ENV=\"development\" webpack --config ./webpack/dll.js",
+    "build": "NODE_ENV=\"production\" webpack -p --config ./webpack/prod.js --progress"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   "author": "awwwesssooooome",
   "license": "MIT",
   "engines": {
-    "node": ">= 7.9.0"
+    "node": ">= 8.4.0"
   },
   "dependencies": {
     "classnames": "^2.2.5",
@@ -39,6 +39,8 @@
     "koa-router": "^7.2.0",
     "koa-static": "^3.0.0",
     "koa-views": "^6.0.2",
+    "koa-webpack-dev-middleware": "^2.0.1",
+    "koa-webpack-hot-middleware": "^1.0.3",
     "path": "^0.12.7",
     "pg": "^6.4.1",
     "pg-hstore": "^2.3.2",
@@ -57,9 +59,9 @@
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.23.0",

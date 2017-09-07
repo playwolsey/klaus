@@ -1,9 +1,9 @@
 import Koa from 'koa'
 import views from 'koa-views'
-import base from './config/base'
+import log4js from 'log4js'
+import base from './app.base'
 import config from './config/config'
 import routes from './routes'
-import log4js from 'log4js'
 
 const app = new Koa()
 const LOG = log4js.getLogger('file')
