@@ -2,9 +2,9 @@ import Koa from 'koa'
 import views from 'koa-views'
 import log4js from 'log4js'
 import webpack from 'webpack'
-// import { devMiddleware, hotMiddleware } from 'koa-webpack-middleware'
-import devMiddleware from 'koa-webpack-dev-middleware'
-import hotMiddleware from 'koa-webpack-hot-middleware'
+import { devMiddleware, hotMiddleware } from 'koa-webpack-middleware'
+//import devMiddleware from 'koa-webpack-dev-middleware'
+//import hotMiddleware from 'koa-webpack-hot-middleware'
 import webpackConfig from '../webpack/dev'
 import base from './app.base'
 import config from './config/config'
@@ -17,21 +17,20 @@ const compiler = webpack(webpackConfig)
 
 base(app)
 
-app.use(convert(devMiddleware(compiler, {
+app.use(devMiddleware(compiler, {
     noInfo: true,
     publicPath: webpackConfig.output.publicPath,
     headers: { "X-Custom-Header": "yes" },
     stats: {
         colors: true
     }
-})))
+}))
 
-app.use(convert(hotMiddleware(compiler)))
-//app.use(hotMiddleware(compiler, {
-//    heartbeat: 10 * 1000,
-//    log: console.log,
-//    path: '/__webpack_hmr'
-//}))
+app.use(hotMiddleware(compiler, {
+    heartbeat: 10 * 1000,
+    log: console.log,
+    path: '/__webpack_hmr'
+}))
 
 app.use(routes())
 
