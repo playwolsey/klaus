@@ -8,14 +8,14 @@ var APP_PATH = path.resolve(ROOT_PATH, '../webapp');
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
-    //entry: {
-    //    main: [
-    //        'eventsource-polyfill',
-    //        'webpack-hot-middleware/client?path=/__webpack_hmr&reload=true&timeout=20000',
-    //        './webapp/index'
-    //    ]
-    //},
-    entry: path.resolve(__dirname, '../webapp/index'),
+    entry: {
+        main: [
+            'eventsource-polyfill',
+            'webpack-hot-middleware/client?path=/__webpack_hmr&reload=true&timeout=20000',
+            './webapp/index'
+        ]
+    },
+    //entry: path.resolve(__dirname, '../webapp/index'),
     output: {
         publicPath: '/assets',
         path: path.resolve(__dirname, '../public/assets'),
@@ -43,7 +43,7 @@ module.exports = {
                 include: [APP_PATH]
             },
             {
-                test: /\.js$/,
+                test: /(\.jsx|\.js)$/,
                 exclude: /node_modules/,
                 include: [APP_PATH],
                 loader: 'babel-loader',
