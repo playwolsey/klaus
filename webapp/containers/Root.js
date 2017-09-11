@@ -10,7 +10,6 @@ export default class Root extends Component {
                 <div>
                     <Route path="/" component={App} />
                     <Route path="/index" component={App} />
-                    <Redirect from='*' to='/' />
                 </div>
             </Router>
         )
