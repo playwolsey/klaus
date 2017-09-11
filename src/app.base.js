@@ -12,8 +12,8 @@ export default (app) => {
 
     app.use(logger())
     app.use(koaBody())
-    app.use(mount("/", serve(`${__dirname}/../../public/`)))
-    app.use(views(`${__dirname}/../views`, {extension: 'swig'}))
+    app.use(mount("/", serve(`${__dirname}/../public/`)))
+    app.use(views(`${__dirname}/views`, {extension: 'swig'}))
 
     //app.use(convert(historyApiFallback({
     //    index: '/'
