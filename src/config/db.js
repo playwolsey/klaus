@@ -8,7 +8,8 @@ const dbConfig = {
     max: 10,
     ssl: false,
     timezone: "+08:00",
-    idleTimeoutMillis: 30000
+    idleTimeoutMillis: 30000,
+    charset: 'utf8'
 }
 
 export default dbConfig
