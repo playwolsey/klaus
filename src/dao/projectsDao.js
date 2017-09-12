@@ -1,11 +1,11 @@
-import Project from '../models/Project'
+import db from '../models/index'
 
 /**
  * @desc 创建新项目
  * @returns {project}
  */
 const createProject = async(pname) => {
-    return await Project.create({
+    return await db.project.create({
         name: pname
     })
 }
@@ -15,7 +15,7 @@ const createProject = async(pname) => {
  * @returns {*}
  */
 const getAllProjects = async() => {
-    return await Project.findAll()
+    return await db.project.findAll()
 }
 
 /**
@@ -24,7 +24,7 @@ const getAllProjects = async() => {
  * @returns {*}
  */
 const getApisByProjectId = async(id) => {
-    return await Project.findById(id);
+    return await db.project.findById(id);
 }
 
 

@@ -1,13 +1,12 @@
-import sequelize from './sequelize'
-import Sequelize from 'sequelize' 
+export default (sequelize, DataTypes) => {
+    const project = sequelize.define('project', {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+    }, {
+        tableName: 'projects'
+    })
 
-const Project = sequelize.define('project', {
-    name: {
-        type: Sequelize.STRING,
-        allowNull: false
-    }
-})
-
-// Project.sync()
-
-export default Project
+    return project
+}
