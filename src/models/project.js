@@ -5,8 +5,9 @@ export default (sequelize, DataTypes) => {
             allowNull: false
         }
     }, {
-        tableName: 'projects'
+        tableName: 'project'
     })
 
+    project.sync()
     return project
 }
