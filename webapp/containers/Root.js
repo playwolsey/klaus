@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
 import App from './AppContainer'
+import Login from './LoginContainer'
+
 
 export default class Root extends Component {
     render() {
         return (
             <Router>
-                <div>
-                    <Route path="/" component={App} />
+                <Switch>
+                    <Route exact  path="/" component={App} />
                     <Route path="/index" component={App} />
-                </div>
+                    <Route path="/login" component={Login} />
+                </Switch>
             </Router>
         )
     }
