@@ -27,6 +27,7 @@
     "node": ">= 8.4.0"
   },
   "dependencies": {
+    "antd": "^2.13.2",
     "classnames": "^2.2.5",
     "koa": "^2.3.0",
     "koa-body": "^2.3.0",
